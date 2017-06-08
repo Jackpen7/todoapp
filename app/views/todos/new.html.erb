@@ -1,0 +1,31 @@
+<% if @todo.errors.any? %>
+
+<h2>The following errors prevented the task from being saved</h2>
+<ul>
+<% @todo.errors.full_messages.each do |msg| %>
+<ul><li><%= msg %></li></ul>
+<% end %>
+</ul>
+
+<% end %>
+<div class="w3-padding-small">
+<h1>Create a new Task</h1>
+
+<%= form_for @todo do |f| %>
+
+<p>
+<%= f.label :name %><br>
+<%= f.text_field :name %>
+</p>
+
+<p>
+<%= f.label :description %><br>
+<%= f.text_area :description %>
+</p>
+
+<p>
+<%= f.submit %>
+</p>
+
+<% end %>
+</div>
