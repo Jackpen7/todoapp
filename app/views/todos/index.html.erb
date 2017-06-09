@@ -3,21 +3,28 @@
   <p>
     <%= link_to "Create a Task", new_todo_path %>
   </p>
-  <table>
-    <tr>
+  <table class="w3-table-all w3-hoverable">
+    <tr class="w3-blue">
       <th>Name</th>
       <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
    <% @todos.each do |todo| %>
       <tr>
-        <td><%= todo.name %></td>
+        <td style="width: 15%"><%= todo.name %></td>
         <td><%= todo.description %></td>
-        <td><%= link_to edit_todo_path(todo) do %>
+        <td style="width: 20px"><%= link_to edit_todo_path(todo) do %>
         <i class="fa fa-pencil-square-o">
           <% end %></td>
-        <td><%= link_to todo_path(todo) do%>
+        <td style="width: 20px"><%= link_to todo_path(todo) do%>
         <i class="fa fa-eye">
         <% end %></td>
+        <td>
+          <%= link_to todo_path(todo), method: :delete, data: {confirm: "Are you sure?"} do %>
+          <i class="fa fa-trash">
+          <% end %></td>
       </tr>
     <% end %>
   </table>
