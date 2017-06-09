@@ -1,7 +1,17 @@
 <div id="navbar" class="w3-bar w3-blue w3-border w3-xlarge">
   <a href="/todos" class="w3-bar-item w3-button w3-white"><i class="fa fa-home"></i></a>
   <a href="/todos/new" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o"></i></a>
-  <a href="/todos/edit" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o"></i></a>
+  <a onclick="edit()" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o"></i></a>
   <a href="#" class="w3-bar-item w3-button"><i class="fa fa-trash-o"></i></a>
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>
 </div>
+
+<script>
+function edit() {
+    var person = prompt("Please enter task ID", "1");
+    if (person != null) {
+window.location.href = "/todos/" + person + "/edit"
+    } else {
+      window.location.href = "/todos/1/edit"
+    }
+}
+</script>
